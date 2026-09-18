@@ -55,6 +55,10 @@ the extra dependencies described below:
     - **anthropic**: LLMs from Anthropic
     - **mistralai**: LLMs from MistralAI
     - **bedrock**: LLMs from Amazon Bedrock
+
+  No extra is needed for `ClaudeCodeLLM` and `CodexCLILLM`, which call the Claude
+  Code and Codex CLIs installed on the machine, signed in with their own OAuth
+  session.
 - **sentence-transformers** : to use embeddings from the `sentence-transformers` Python package
 - Vector database (to use :ref:`External Retrievers`):
     - **weaviate**: store vectors in Weaviate

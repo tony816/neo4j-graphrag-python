@@ -77,6 +77,7 @@ are listed in [the last section of this file](#customize).
 - [Cohere](./customize/llms/cohere_llm.py)
 - [Anthropic (Claude)](./customize/llms/anthropic_llm.py)
 - [Ollama](./customize/llms/ollama_llm.py)
+- [Local agent CLIs (Claude Code, Codex)](./customize/llms/local_cli_llm.py)
 - [Custom LLM](./customize/llms/custom_llm.py)
 
 - [Message history](./customize/llms/llm_with_message_history.py)

@@ -18,6 +18,9 @@ from typing import Any
 from .anthropic_llm import AnthropicLLM, BaseAnthropicLLM
 from .base import LLMBase, LLMInterface, LLMInterfaceV2
 from .bedrock_llm import BedrockLLM
+from .claude_code_llm import ClaudeCodeLLM
+from .cli_llm import BaseCLILLM, CLIAuthStatus, CLINotFoundError
+from .codex_cli_llm import CodexCLILLM
 from .cohere_llm import CohereLLM
 from .google_genai_llm import (
     GEMINI_DEFAULT_IMAGE_MIME_TYPE,
@@ -38,8 +41,13 @@ __all__ = [
     "GEMINI_SUPPORTED_IMAGE_MIME_TYPES",
     "AnthropicLLM",
     "BaseAnthropicLLM",
+    "BaseCLILLM",
     "BaseGeminiLLM",
     "BedrockLLM",
+    "CLIAuthStatus",
+    "CLINotFoundError",
+    "ClaudeCodeLLM",
+    "CodexCLILLM",
     "CohereLLM",
     "GeminiImageMimeType",
     "GeminiLLM",

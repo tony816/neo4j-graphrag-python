@@ -432,6 +432,34 @@ MistralAILLM
     :members:
 
 
+BaseCLILLM
+----------
+
+.. autoclass:: neo4j_graphrag.llm.cli_llm.BaseCLILLM
+    :members:
+
+
+ClaudeCodeLLM
+-------------
+
+.. autoclass:: neo4j_graphrag.llm.claude_code_llm.ClaudeCodeLLM
+    :members: auth_status, find_executable, version
+
+
+CodexCLILLM
+-----------
+
+.. autoclass:: neo4j_graphrag.llm.codex_cli_llm.CodexCLILLM
+    :members: auth_status, find_executable, version
+
+
+CLIAuthStatus
+-------------
+
+.. autoclass:: neo4j_graphrag.llm.cli_llm.CLIAuthStatus
+    :members:
+
+
 Rate Limiting
 =============
 

@@ -247,6 +247,49 @@ it can be queried using the following:
     llm.invoke("say something")
 
 
+Using a Locally Installed Agent CLI (Claude Code, Codex)
+--------------------------------------------------------
+
+If the Claude Code or Codex CLI is installed and signed in on the machine, it can
+be used as an LLM provider without an API key. The CLI is spawned in
+non-interactive mode and authenticates with its own OAuth session, the one
+created by ``claude /login`` or ``codex login``:
+
+.. code:: python
+
+    from neo4j_graphrag.llm import ClaudeCodeLLM, CodexCLILLM
+
+    llm = ClaudeCodeLLM(model_name="sonnet")
+    llm.invoke("say something")
+
+    llm = CodexCLILLM(model_name="gpt-5-codex")
+    llm.invoke("say something")
+
+The executable is looked up on ``PATH``, then in the usual installation
+directories; set ``CLAUDE_CLI_PATH`` / ``CODEX_CLI_PATH`` or pass
+``executable="/path/to/claude"`` when it lives somewhere else.
+
+Both classes support structured output (``response_format=``), which is passed
+to the CLI as a JSON schema, so they can be used with
+``SimpleKGPipeline(..., use_structured_output=True)``.
+
+The OAuth session can be checked -- it reads metadata only, never the tokens:
+
+.. code:: python
+
+    status = ClaudeCodeLLM.auth_status()
+    print(status.authenticated, status.method, status.detail)
+
+.. note::
+
+    No extra Python package is required, but the calls are subject to the usage
+    limits and terms of the subscription the CLI is signed in with. Each call
+    spawns a process, so expect a higher per-call latency than an HTTP provider,
+    and keep the pipeline concurrency modest.
+
+See :ref:`claudecodellm` and :ref:`codexclillm`.
+
+
 Using a Model from LangChain
 -----------------------------
 
